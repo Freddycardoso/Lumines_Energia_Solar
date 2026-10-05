@@ -84,7 +84,7 @@ export default function CalculadoraSolar() {
             href={`https://wa.me/5535999765975?text=${mensagemWhatsApp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 px-6 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-center premium-interactive shadow-lg flex items-center justify-center gap-2"
+            className="w-full py-4 px-6 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-center premium-interactive shadow-lg flex items-center justify-center gap-2 btn-solar-flare"
           >
             <span>Quero meu estudo grátis</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
