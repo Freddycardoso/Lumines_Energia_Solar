@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --ease-out-ui: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-ui: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Entry Animation Classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(2rem) scale(0.97);
+  transition: opacity 700ms var(--ease-out-ui), transform 700ms var(--ease-out-ui);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.delay-100 { transition-delay: 100ms; }
+.reveal-on-scroll.delay-200 { transition-delay: 200ms; }
+.reveal-on-scroll.delay-300 { transition-delay: 300ms; }
+.reveal-on-scroll.delay-400 { transition-delay: 400ms; }
+.reveal-on-scroll.delay-500 { transition-delay: 500ms; }
+
+.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover Animation overrides using premium easings */
+.premium-hover {
+  transition: transform 300ms var(--ease-out-ui), box-shadow 300ms var(--ease-out-ui), background-color 200ms var(--ease-out-ui);
+}
+.premium-hover:hover {
+  transform: translateY(-6px);
+}
+
+/* Tactile Press Feedback */
+.premium-press {
+  transition: transform 160ms var(--ease-out-ui), box-shadow 160ms var(--ease-out-ui), background-color 160ms var(--ease-out-ui), color 160ms var(--ease-out-ui);
+}
+.premium-press:active {
+  transform: scale(0.97);
+}
+
+/* Combined Hover & Press */
+.premium-interactive {
+  transition: transform 300ms var(--ease-out-ui), box-shadow 300ms var(--ease-out-ui), background-color 200ms var(--ease-out-ui);
+}
+.premium-interactive:hover {
+  transform: translateY(-4px);
+}
+.premium-interactive:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 160ms;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    transform: none;
+    transition: opacity 400ms ease;
+  }
+  .premium-hover:hover {
+    transform: none;
+  }
+}
